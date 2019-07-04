@@ -1,0 +1,91 @@
+﻿
+@{
+    Layout = null;
+}
+@using Models
+@model List<News>
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+    <meta charset="utf-8" />
+    <title> 网站后台管理</title>
+    <meta name="viewport" content="width=device-width" />
+    <link href="../../../../Areas/WebHotelManage/Css/ManageLayout.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="container">
+        <div id="top">
+        </div>
+        <div id="nav">
+            <div id="navlink">
+                <ul>
+                    <li><a href="/WebHotelManage/SysAdmin/AdminMain">首页</a></li>
+                    <li><a href="/Dishes/Index">添加菜品</a></li>
+                    <li><a href="/Dishes/DishesManager">菜品管理</a></li>
+                    <li><a href="/WebHotelManage/News/NewsPublish">发布新闻</a></li>
+                    <li><a href="/News/NewsManager">新闻管理</a></li>
+                    <li><a href="/DishesBook/DishesBook">预订管理</a></li>
+                    <li><a href="/WebHotelManage/Company/SuggestionManager">投诉管理</a></li>
+                    <li><a href="/Recruitment/Index">发布招聘</a></li>
+                    <li><a href="/Recruitment/RecruitmentManager">招聘管理</a></li>
+                    <li><a class="navLast" href="/WebHotelManage/SysAdmin/ExitSys">退出系统</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="content">
+            <div class="itemdiv">
+                <div class="newsitem-title-1">
+                    发布时间
+                </div>
+                <div class="newsitem-title-2">
+                    新闻标题
+                </div>
+                <div class="newsitem-title-2">
+                    新闻分类
+                </div>
+                <div class="newsitem-title-3" style="width: 110px;">
+                    操作
+                </div>
+                @{ 
+                    foreach (var temp in Model)
+                    {
+                <div class="newsitem-title-1">
+                    @temp.PublishTime
+                </div>
+                <div class="newsitem-title-2">
+                    <a href='/News/NewsDetail?newsId=1000' target="_blank">
+                        @temp.NewsTitle
+                    </a>
+                </div>
+                <div class="newsitem-title-2">
+                      @{
+                          var newscategory = (ViewBag.NewsCategory as List<NewsCategory>).Where(o => o.CategoryId == temp.CategoryId);
+                          foreach (NewsCategory temps in newscategory)
+                          {
+                              <label>@temps.CategoryName</label>
+                          }
+
+                     }
+                </div>
+                <div class="newsitem-title-3" style="width: 110px;">
+                    <a class="" href="UpdateNews?NewsId=@temp.NewsId">修改</a>
+                    <a href='DeleteNews?&NewsId=@temp.NewsId' onclick='if(confirm("确定要删除吗?")==false) return false;'>删除</a>
+                </div>    
+                          }
+                    }
+            </div>
+
+        </div>
+
+        <div id="footer">
+            <div id="bq">
+                <a target="_blank" href="/Company/Index">[网站首页]</a>&nbsp;&nbsp;版权所有 Copyright(C)2010-2020
+                好运来酒店&nbsp;&nbsp;&nbsp;[当前用户:]
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

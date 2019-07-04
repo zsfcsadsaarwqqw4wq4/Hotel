@@ -1,0 +1,298 @@
+﻿
+@{hidden
+
+#line 11 "E:\重庆敢为科技物联网公司.net\HotelWebProject\HotelWebProject\HotelWebProject\Views\DishesBook\DishesBook.cshtml"
+
+
+
+#line default
+#line hidden
+
+#line 12 "E:\重庆敢为科技物联网公司.net\HotelWebProject\HotelWebProject\HotelWebProject\Views\DishesBook\DishesBook.cshtml"
+
+                    }
+            
+
+#line default
+#line hidden
+
+#line 13 "E:\重庆敢为科技物联网公司.net\HotelWebProject\HotelWebProject\HotelWebProject\Views\DishesBook\DishesBook.cshtml"
+                  
+        
+
+#line default
+#line hidden
+
+#line 14 "E:\重庆敢为科技物联网公司.net\HotelWebProject\HotelWebProject\HotelWebProject\Views\DishesBook\DishesBook.cshtml"
+              
+        
+
+#line default
+#line hidden
+
+#line 15 "E:\重庆敢为科技物联网公司.net\HotelWebProject\HotelWebProject\HotelWebProject\Views\DishesBook\DishesBook.cshtml"
+              
+    
+
+#line default
+#line hidden
+
+#line 16 "E:\重庆敢为科技物联网公司.net\HotelWebProject\HotelWebProject\HotelWebProject\Views\DishesBook\DishesBook.cshtml"
+          
+
+
+#line default
+#line hidden
+
+#line 17 "E:\重庆敢为科技物联网公司.net\HotelWebProject\HotelWebProject\HotelWebProject\Views\DishesBook\DishesBook.cshtml"
+       
+
+
+#line default
+#line hidden
+
+#line 18 "E:\重庆敢为科技物联网公司.net\HotelWebProject\HotelWebProject\HotelWebProject\Views\DishesBook\DishesBook.cshtml"{       }
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>菜品预定</title>
+    <title>杭州中式餐馆酒店</title>
+    <link rel="Shortcut Icon" href="../../Styles/Images/clogo.ico" />
+    <link href="../../Styles/MainPage.css" rel="stylesheet" type="text/css" />
+    <link href="../../Styles/MasterPage.css" rel="stylesheet" type="text/css" />
+    <script language="JavaScript" type="text/javascript">
+        var NowFrame = 1;
+        var MaxFrame = 2;
+        function scroll1(d1) {
+            if (Number(d1)) {
+                NowFrame = d1;                //设当前显示图片
+            }
+            for (var i = 1; i < (MaxFrame + 1); i++) {
+                if (NowFrame == i) {
+                    document.getElementById(NowFrame).style.display = 'block';   //当前显示图片
+                }
+                else {
+                    document.getElementById(i).style.display = 'none';
+                }
+            }
+            {
+                if (NowFrame == MaxFrame)   //设置下一个显示的图片
+                    NowFrame = 1;
+                else
+                    NowFrame++;
+            }
+            theTimer = setTimeout('scroll1()', 3000);   //设置定时器，显示下一张图片
+        }
+    </script>
+
+
+    <link href="../../Styles/Dishes.css" rel="stylesheet" type="text/css" />
+
+    <script src="../../Scripts/jquery-1.4.1.min.js"></script>
+    <script src="../../Scripts/validation-min.js"></script>
+    <script src="../../ThirdFile/My97DatePicker/WdatePicker.js"></script>
+    <style type="text/css">
+        .txtarea {
+            width: 200px;
+            height: 50px;
+        }
+    </style>
+
+</head>
+<body onload="scroll1(1)">
+    <div id="container">
+        <div id="top">
+        </div>
+        <div id="nav">
+            <div id="navlink">
+                <ul>
+                    <li><a href="/">网站首页</a></li>
+                    <li><a href="/Company/ComDesc">公司介绍</a></li>
+                    <li><a href="/News/NewsList">新闻动态</a></li>
+                    <li><a href="/Dishes/DishesShow">美食展示</a></li>
+                    <li><a href="/Company/Environment">餐厅环境</a></li>
+                    <li><a href="/Dishes/DishesBook">在线预订</a></li>
+                    <li><a href="/Company/JoinUs">加盟连锁</a></li>
+                    <li><a href="/Company/Suggestions">投诉建议</a></li>
+                    <li><a href="/Company/RecruitmentList">招聘信息</a></li>
+                    <li><a href="/Company/AboutUs">关于我们</a></li>
+                </ul>
+            </div>
+        </div>
+        <div id="topflashDiv">
+            <div id="topflashbg">
+                <img src="../../Images/topflash1.jpg" id="1" alt="" style="display: none;" />
+                <img src="../../Images/topflash2.jpg" id="2" alt="" style="display: none;" />
+            </div>
+        </div>
+        <div id="content">
+            <div id="leftpage">
+                <div class="lefttitle">
+                    菜品分类
+                </div>
+                <div class="content1">
+                    <div class="conitem">
+                        <a href="#">招牌菜品</a>
+                    </div>
+                    <div class="conitem">
+                        <a href="#">特色菜品</a>
+                    </div>
+                    <div class="conitem">
+                        <a href="#">最新菜品</a>
+                    </div>
+                </div>
+            </div>
+            <div id="rightpage">
+                <div class="righttitle">
+                    您现在所在的位置:中式餐厅酒店>在线预订
+                </div>
+                <div class="contentDiv">
+                    <div class="cdiv">
+                        <form action="/" id="mainForm" method="post">
+                            <div class="item">
+                                <div class="itemtitle">
+                                    酒店名称：
+                                </div>
+                                <div class="itemcontent">
+                                    <select name="HotelName">
+                                        <option value="天津南开店">天津南开店</option>
+                                        <option value="天津和平店">天津和平店</option>
+                                        <option value="北京朝阳店">北京朝阳店</option>
+                                    </select>
+                                    <span>&nbsp;*</span>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="itemtitle">
+                                    您的消费时间：
+                                </div>
+                                <div class="itemcontent">
+                                    <input class="txt" id="ConsumeTime" name="ConsumeTime" onclick="WdatePicker()" type="text" value="" />
+                                    <span>&nbsp;*</span>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="itemtitle">
+                                    您的消费人数：
+                                </div>
+                                <div class="itemcontent">
+                                    <input class="txt" id="ConsumePersons" name="ConsumePersons" type="text" value="" />
+                                    <span>&nbsp;*</span>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="itemtitle">
+                                    选择包间类型：
+                                </div>
+                                <div class="itemcontent">
+                                    <select name="RoomType">
+                                        <option value="包间">包间</option>
+                                        <option value="散座">散座</option>
+                                    </select>
+                                    <span>&nbsp;*</span>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="itemtitle">
+                                    预订人姓名：
+                                </div>
+                                <div class="itemcontent">
+                                    <input class="txt" id="CustomerName" name="CustomerName" type="text" value="" />
+                                    <span>&nbsp;*</span>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="itemtitle">
+                                    手机号码：
+                                </div>
+                                <div class="itemcontent">
+                                    <input class="txt" id="CustomerPhone" name="CustomerPhone" type="text" value="" />
+                                    <span>&nbsp;*</span>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="itemtitle">
+                                    电子邮件：
+                                </div>
+                                <div class="itemcontent">
+                                    <input class="txt" id="CustomerEmail" name="CustomerEmail" type="text" value=" " />
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="itemtitle">
+                                    备注事项：
+                                </div>
+                                <div class="itemcontent">
+                                    <textarea class="txtarea" cols="20" id="Comments" name="Comments" rows="2"></textarea>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="itemtitle">
+                                    验证码：
+                                </div>
+                                <div class="itemcontent">
+                                    <input class="txt" id="txtValidateCode" name="txtValidateCode" type="text" value="" />
+                                    <span>&nbsp;*</span>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="itemtitle">
+                                </div>
+                                <div class="itemcontent">
+                                    <img alt="验证码图片" id="vCodeimg" title="看不清？点击换一个"
+                                         src="/Dishes/ValidateCode" onclick="this.src=this.src+'?'" />
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="itemtitle">
+                                </div>
+                                <div class="itemcontent">
+                                    <input type="button" class="btncss" id="submitMsg" value="马上预定" />
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div id="popdiv">
+                        <div id="infodiv">
+                            <div id="loadingdiv">
+                                <img src="../../Styles/Images/onloading.gif" />
+                            </div>
+                            <div class="loadinfo">
+                                正在提交数据，请耐心等待......
+                            </div>
+                        </div>
+                        <div id="errordiv" style="display: none; color: #FCD24B; float: left;">
+                            服务器超时，请稍后再试！[关闭]
+                        </div>
+                        <div id="regsuccess" style="float: left; display: none;">
+                            提交成功！&nbsp;<b>在<span id="seconds">3</span></b>&nbsp;秒后自动跳转......
+                        </div>
+                    </div>
+                    <div id="zzc">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="footer">
+            <div id="footercontent">
+                <ul>
+                    <li><a href="#">关于我们</a></li>
+                    <li><a href="#">联系方式</a></li>
+                    <li><a href="#">加盟连锁</a></li>
+                    <li><a href="#">投诉建议</a></li>
+                    <li><a href="#">友情链接</a></li>
+                </ul>
+            </div>
+            <div id="bq">
+                版权所有 Copyright(C)2010-2020
+            </div>
+        </div>
+        <div id="footerbottom">
+        </div>
+    </div>
+</body>
+</html>
+
+</html>

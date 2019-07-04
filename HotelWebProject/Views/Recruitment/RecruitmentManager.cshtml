@@ -1,0 +1,99 @@
+﻿
+@{
+    Layout = null;
+}
+@using Models
+@model List<Recruitment>
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+    <meta charset="utf-8" />
+    <title> 网站后台管理</title>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Areas/WebHotelManage/Css/ManageLayout.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="container">
+        <div id="top">
+        </div>
+        <div id="nav">
+            <div id="navlink">
+                <ul>
+                    <li><a href="/WebHotelManage/SysAdmin/AdminMain">首页</a></li>
+                    <li><a href="/Dishes/Index">添加菜品</a></li>
+                    <li><a href="/Dishes/DishesManager">菜品管理</a></li>
+                    <li><a href="/WebHotelManage/News/NewsPublish">发布新闻</a></li>
+                    <li><a href="/WebHotelManage/News/NewsManager">新闻管理</a></li>
+                    <li><a href="/WebHotelManage/Company/BookManager">预订管理</a></li>
+                    <li><a href="/WebHotelManage/Company/SuggestionManager">投诉管理</a></li>
+                    <li><a href="/Recruitment/Index">发布招聘</a></li>
+                    <li><a href="/Recruitment/RecruitmentManager">招聘管理</a></li>
+                    <li><a class="navLast" href="/WebHotelManage/SysAdmin/ExitSys">退出系统</a></li>
+                </ul>
+            </div>
+        </div>
+        <div id="content">
+            <div class="itemdiv">
+                <div class="bitem-title">
+                    职位名称
+                </div>
+                <div class="bitem-title">
+                    职位类型
+                </div>
+                <div class="bitem-title">
+                    工作经验
+                </div>
+                <div class="bitem-title">
+                    学历要求
+                </div>
+                <div class="bitem-title">
+                    招聘人数
+                </div>
+                <div class="bitem-title">
+                    工作地点
+                </div>
+                <div class="bitem-title" style="width: 120px;">
+                    操作
+                </div>
+                @{
+                    var list = ViewData["RecruitmentManager"] as List<Recruitment>;
+                    foreach (var temp in list)
+                    {
+                        <div class="bitem">
+                            @temp.PostName
+                        </div>
+                        <div class="bitem">
+                            @temp.PostType
+                        </div>
+                        <div class="bitem">
+                            @temp.Experience
+                        </div>
+                        <div class="bitem">
+                            @temp.EduBackground
+                        </div>
+                        <div class="bitem">
+                            @temp.RequireCount
+                        </div>
+                        <div class="bitem">
+                            @temp.PostPlace
+                        </div>
+                        <div class="bitem" style="width: 120px;">
+                            <a href='RecruitmentUpdate?postId=@temp.PostId'>修改</a>&nbsp;&nbsp;
+                            <a href='DeleteRecruitment?postId=@temp.PostId' onclick='if(confirm("确定要删除吗?")==false) return false;'>删除</a>&nbsp;&nbsp;
+                        </div>
+                    }
+                }              
+            </div>
+        </div>
+        <div id="footer">
+            <div id="bq">
+                <a target="_blank" href="/Company/Index">[网站首页]</a>&nbsp;&nbsp;版权所有 Copyright(C)2010-2020
+                好运来酒店&nbsp;&nbsp;&nbsp;[当前用户:]
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

@@ -1,0 +1,124 @@
+﻿
+@{
+    Layout = null;
+}
+
+@using Models
+@model News
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+    <meta charset="utf-8" />
+    <title> 网站后台管理</title>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Areas/WebHotelManage/Css/ManageLayout.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="container">
+        <div id="top">
+        </div>
+        <div id="nav">
+            <div id="navlink">
+                <ul>
+                    <li><a href="/WebHotelManage/SysAdmin/AdminMain">首页</a></li>
+                    <li><a href="/Dishes/Index">添加菜品</a></li>
+                    <li><a href="/Dishes/DishesManager">菜品管理</a></li>
+                    <li><a href="/WebHotelManage/News/NewsPublish">发布新闻</a></li>
+                    <li><a href="/News/NewsManager">新闻管理</a></li>
+                    <li><a href="/DishesBook/DishesBook">预订管理</a></li>
+                    <li><a href="/WebHotelManage/Company/SuggestionManager">投诉管理</a></li>
+                    <li><a href="/Recruitment/Index">发布招聘</a></li>
+                    <li><a href="/Recruitment/RecruitmentManager">招聘管理</a></li>
+                    <li><a class="navLast" href="/WebHotelManage/SysAdmin/ExitSys">退出系统</a></li>
+                </ul>
+            </div>
+        </div>
+        <div id="content">
+
+            <script src="~/ThirdFile/ckeditor/ckeditor.js"></script>
+            <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+            <script src="~/ThirdFile/My97DatePicker/WdatePicker.js"></script>
+            <script>
+                $(function () {
+                    $("#btnPublish").click(function () {
+                        var NewsId = $("#NewsId").val();
+                        console.log(NewsId);
+                        var NewsTitle = $("#NewsTitle").val();
+                        console.log(NewsTitle);
+                        var CategoryId = $("#CategoryId").val();
+                        console.log(CategoryId);
+                        var NewsContents = $("#NewsContents").val();
+                        console.log(NewsContents);
+                        var PublishTime = $("#PublishTime").val();
+                        console.log(PublishTime);
+                        var item = {
+                            NewsId: NewsId,
+                            NewsTitle: NewsTitle,
+                            CategoryId: CategoryId,
+                            NewsContents: NewsContents,
+                            PublishTime: PublishTime
+                        }
+                        $.ajax({
+                            url: "/News/UpdatesNews",
+                            type: "post",
+                            data: item,
+                            datatype: "json",
+                            success: function (data) {
+                                if (data = "修改成功") {
+                                    window.location = "/News/NewsManager";
+                                }
+                            }
+
+                        })
+                    })
+                })
+            </script>
+            @{
+                <div class="txtContentdiv">
+                    <input data-val="true" data-val-number="字段 NewsId 必须是一个数字。" data-val-required="NewsId 字段是必需的。" id="NewsId" name="NewsId" type="hidden" value="@Model.NewsId" />
+                    <div class="txtItemdiv">
+                        发布时间：<input id="PublishTime" name="PublishTime" class="Wdate" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss',readOnly:true});" value="@Model.PublishTime.Value.ToString("yyyy-MM-dd HH:mm:ss")" />
+                        新闻标题：<input class="txt" id="NewsTitle" name="NewsTitle" type="text" value="@Model.NewsTitle" />
+                        &nbsp;&nbsp;
+                        新闻分类：
+                        <select data-val="true" data-val-number="字段 CategoryId 必须是一个数字。" data-val-required="CategoryId 字段是必需的。" id="CategoryId" name="CategoryId">
+                            @{
+                                var newscategory = ViewBag.NewsCategory as List<NewsCategory>;
+                                var newscategorys = ViewBag.NewsCategorys as NewsCategory;
+                                <option value="@newscategorys.CategoryId"> @newscategorys.CategoryName </option>
+                                foreach (var temps in newscategory)
+                                {
+                                    if (temps.CategoryId != newscategorys.CategoryId)
+                                    {
+                                        <option value="@temps.CategoryId"> @temps.CategoryName </option>
+                                    }
+                                }
+                            }
+                        </select>
+                    </div>
+                    <div class="txtItemdiv">
+                        新闻内容：
+                    </div>
+                    <div class="txtItemdiv">
+                        <textarea cols="20" id="NewsContents" name="NewsContents" rows="2">@Model.NewsContents</textarea>
+                        <script type="text/javascript">
+                            CKEDITOR.replace("NewsContents")
+                        </script>
+                    </div>
+                    <div class="txtItemdiv">
+                        <button class="btncss" id="btnPublish" type="submit">立即修改</button>
+                    </div>
+                </div>
+            }
+        </div>
+        <div id="footer">
+            <div id="bq">
+                <a target="_blank" href="/Company/Index">[网站首页]</a>&nbsp;&nbsp;版权所有 Copyright(C)2010-2020
+                好运来酒店&nbsp;&nbsp;&nbsp;[当前用户:]
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

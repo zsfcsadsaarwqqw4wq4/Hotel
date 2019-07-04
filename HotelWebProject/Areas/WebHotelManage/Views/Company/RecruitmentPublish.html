@@ -1,0 +1,104 @@
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+    <meta charset="utf-8" />
+    <title> 网站后台管理</title>
+    <meta name="viewport" content="width=device-width" />
+    <link href="../../../../Areas/WebHotelManage/Css/ManageLayout.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="container">
+        <div id="top">
+        </div>
+        <div id="nav">
+            <div id="navlink">
+                <ul>
+                    <li><a href="/WebHotelManage/SysAdmin/AdminMain">首页</a></li>
+                    <li><a href="/WebHotelManage/Dishes/DishesPublish">添加菜品</a></li>
+                    <li><a href="/WebHotelManage/Dishes/DishesManager">菜品管理</a></li>
+                    <li><a href="/WebHotelManage/News/NewsPublish">发布新闻</a></li>
+                    <li><a href="/WebHotelManage/News/NewsManager">新闻管理</a></li>
+                    <li><a href="/WebHotelManage/Company/BookManager">预订管理</a></li>
+                    <li><a href="/WebHotelManage/Company/SuggestionManager">投诉管理</a></li>
+                    <li><a href="/WebHotelManage/Company/RecruitmentPublish">发布招聘</a></li>
+                    <li><a href="/WebHotelManage/Company/RecruitmentManager">招聘管理</a></li>
+                    <li><a class="navLast" href="/WebHotelManage/SysAdmin/ExitSys">退出系统</a></li>
+                </ul>
+            </div>
+        </div>
+        <div id="content">
+
+            <style type="text/css">
+                .txt {
+                    width: 80px;
+                }
+            </style>
+            <form action="/WebHotelManage/Company/SubmitRecruimentInfo" method="post">
+                <div class="txtContentdiv">
+                    <div class="txtItemdiv">
+                        职位名称：<input class="txt" id="PostName" name="PostName" type="text" value="" />
+
+                        职位类型：
+                        <select id="PostType" name="PostType">
+                            <option>全职</option>
+                            <option>兼职</option>
+                        </select>
+                        工作经验：
+                        <select id="Experience" name="Experience">
+                            <option>1年</option>
+                            <option>2年</option>
+                            <option>3年</option>
+                            <option>4年</option>
+                            <option>5年</option>
+                        </select>
+                        学历要求：
+                        <select id="EduBackground" name="EduBackground">
+                            <option>本科</option>
+                            <option>硕士</option>
+                            <option>专科</option>
+                            <option>高中</option>
+                        </select>
+                        招聘人数：
+                        <input class="txt" id="RequireCount" name="RequireCount" type="text" value="" />
+                        工作地点：
+                        <input class="txt" id="PostPlace" name="PostPlace" type="text" value="" />
+                    </div>
+                    <div class="txtItemdiv">
+                        职位描述：
+                    </div>
+                    <div class="txtItemdiv">
+                        <textarea cols="100" id="PostRequire" name="PostRequire" rows="10"></textarea>
+
+                    </div>
+                    <div class="txtItemdiv">
+                        具体要求：
+                    </div>
+                    <div class="txtItemdiv">
+                        <textarea cols="100" id="PostDesc" name="PostDesc" rows="10"></textarea>
+
+                    </div>
+                    <div class="txtItemdiv">
+                        联系人：
+                        <input id="Manager" name="Manager" type="text" value="" />
+                        电话：<input id="PhoneNumber" name="PhoneNumber" type="text" value="" />
+
+                        电子邮件：<input id="Email" name="Email" type="text" value="" />
+                    </div>
+                    <div class="txtItemdiv">
+                        <button class="btncss" id="btnModify" type="submit">立即发布</button>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+        <div id="footer">
+            <div id="bq">
+                <a target="_blank" href="/Company/Index">[网站首页]</a>&nbsp;&nbsp;版权所有 Copyright(C)2010-2020
+                好运来酒店&nbsp;&nbsp;&nbsp;[当前用户:]
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,123 @@
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+    <meta charset="utf-8" />
+    <title> 锟斤拷站锟斤拷台锟斤拷锟斤拷</title>
+    <meta name="viewport" content="width=device-width" />
+    <link href="../../../../Areas/WebHotelManage/Css/ManageLayout.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="container">
+        <div id="top">
+        </div>
+        <div id="nav">
+            <div id="navlink">
+                <ul>
+                    <li><a href="/WebHotelManage/SysAdmin/AdminMain">锟斤拷页</a></li>
+                    <li><a href="/WebHotelManage/Dishes/DishesPublish">锟斤拷硬锟狡�/a></li>
+                    <li><a href="/WebHotelManage/Dishes/DishesManager">锟斤拷品锟斤拷锟斤拷</a></li>
+                    <li><a href="/WebHotelManage/News/NewsPublish">锟斤拷锟斤拷锟斤拷锟斤拷</a></li>
+                    <li><a href="/WebHotelManage/News/NewsManager">锟斤拷锟脚癸拷锟斤拷</a></li>
+                    <li><a href="/WebHotelManage/Company/BookManager">预锟斤拷锟斤拷锟斤拷</a></li>
+                    <li><a href="/WebHotelManage/Company/SuggestionManager">投锟竭癸拷锟斤拷</a></li>
+                    <li><a href="/WebHotelManage/Company/RecruitmentPublish">锟斤拷锟斤拷锟斤拷聘</a></li>
+                    <li><a href="/WebHotelManage/Company/RecruitmentManager">锟斤拷聘锟斤拷锟斤拷</a></li>
+                    <li><a class="navLast" href="/WebHotelManage/SysAdmin/ExitSys">锟剿筹拷系统</a></li>
+                </ul>
+            </div>
+        </div>
+        <div id="content">
+
+
+            <style type="text/css">
+                .txt {
+                    width: 80px;
+                }
+            </style>
+            <script src="../../../../Scripts/jquery-1.8.2.min.js"></script>
+            <script type="text/javascript">
+    $(function () {
+        var postType1 = $("#postT").val();
+        $("#PostType").val(postType1);
+        var Exp1 = $("#Exp").val();
+        $("#Experience").val(Exp1);
+        var Edu1 = $("#Edu").val();
+        $("#EduBackground").val(Edu1);
+    });
+            </script>
+            <form action="/WebHotelManage/Company/SubmitRecruimentInfo" method="post">
+                <div class="txtContentdiv">
+                    <div class="txtItemdiv">
+                        职位锟斤拷疲锟�input class="txt" id="PostName" name="PostName" type="text" value="锟斤拷锟矫撅拷锟斤拷" />
+                        <input data-val="true" data-val-number="锟街讹拷 PostId 锟斤拷锟斤拷锟斤拷一锟斤拷锟斤拷锟街★拷" data-val-required="PostId 锟街讹拷锟角憋拷锟斤拷摹锟� id="PostId" name="PostId" type="hidden" value="100000" />
+                        <input id="PostT" name="PostT" type="hidden" value="全职" />
+                        <input id="Exp" name="Exp" type="hidden" value="3锟斤拷" />
+                        <input id="Edu" name="Edu" type="hidden" value="锟斤拷锟斤拷" />
+                        职位锟斤拷锟酵ｏ拷
+                        <select id="PostType" name="PostType">
+                            <option>全职</option>
+                            <option>锟斤拷职</option>
+                        </select>
+                        锟斤拷锟斤拷锟斤拷锟介：
+                        <select id="Experience" name="Experience">
+                            <option>1锟斤拷</option>
+                            <option>2锟斤拷</option>
+                            <option>3锟斤拷</option>
+                            <option>4锟斤拷</option>
+                            <option>5锟斤拷</option>
+                        </select>
+                        学锟斤拷要锟斤拷
+                        <select id="EduBackground" name="EduBackground">
+                            <option>锟斤拷锟斤拷</option>
+                            <option>硕士</option>
+                            <option>专锟斤拷</option>
+                            <option>锟斤拷锟斤拷</option>
+                        </select>
+                        锟斤拷聘锟斤拷锟斤拷
+                        <input class="txt" data-val="true" data-val-number="锟街讹拷 RequireCount 锟斤拷锟斤拷锟斤拷一锟斤拷锟斤拷锟街★拷" data-val-required="RequireCount 锟街讹拷锟角憋拷锟斤拷摹锟� id="RequireCount" name="RequireCount" type="text" value="2" />
+                        锟斤拷锟斤拷锟截点：
+                        <input class="txt" id="PostPlace" name="PostPlace" type="text" value="锟斤拷锟� />
+                    </div>
+                    <div class="txtItemdiv">
+                        职位锟斤拷锟斤拷锟斤拷
+                    </div>
+                    <div class="txtItemdiv">
+                        <textarea cols="100" id="PostRequire" name="PostRequire" rows="10">
+                            要锟斤拷弑锟斤拷锟街拔�锟斤拷锟斤拷锟较撅拷营锟斤拷锟�锟斤拷
+                        </textarea>
+
+                    </div>
+                    <div class="txtItemdiv">
+                        锟斤拷锟斤拷要锟斤拷
+                    </div>
+                    <div class="txtItemdiv">
+                        <textarea cols="100" id="PostDesc" name="PostDesc" rows="10">
+                            锟斤拷锟斤拷一锟斤拷楼锟侥癸拷锟斤拷
+                        </textarea>
+
+                    </div>
+                    <div class="txtItemdiv">
+                        锟斤拷系锟剿ｏ拷
+                        <input id="Manager" name="Manager" type="text" value="锟筋超锟斤拷" />
+                        锟界话锟斤拷<input id="PhoneNumber" name="PhoneNumber" type="text" value="15689011231" />
+
+                        锟斤拷锟斤拷锟绞硷拷锟斤拷<input id="Email" name="Email" type="text" value="lichaoyang@hyl.com" />
+                    </div>
+                    <div class="txtItemdiv">
+                        <button class="btncss" id="btnModify" type="submit">锟斤拷锟斤拷锟睫革拷</button>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+        <div id="footer">
+            <div id="bq">
+                <a target="_blank" href="/Company/Index">[锟斤拷站锟斤拷页]</a>&nbsp;&nbsp;锟斤拷权锟斤拷锟斤拷 Copyright(C)2010-2020
+                锟斤拷锟斤拷锟斤拷锟狡碉拷&nbsp;&nbsp;&nbsp;[锟斤拷前锟矫伙拷:]
+            </div>
+        </div>
+    </div>
+</body>
+</html>

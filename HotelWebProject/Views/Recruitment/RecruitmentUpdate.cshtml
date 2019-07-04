@@ -1,0 +1,126 @@
+﻿@model Models.Recruitment
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+    <meta charset="utf-8" />
+    <title> 网站后台管理</title>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Areas/WebHotelManage/Css/ManageLayout.css" rel="stylesheet" />
+    <script src="~/ThirdFile/My97DatePicker/WdatePicker.js"></script>
+</head>
+<body>
+    <div id="container">
+        <div id="top">
+        </div>
+        <div id="nav">
+            <div id="navlink">
+                <ul>
+                    <li><a href="/WebHotelManage/SysAdmin/AdminMain">首页</a></li>
+                    <li><a href="/Dishes/Index">添加菜品</a></li>
+                    <li><a href="/Dishes/DishesManager">菜品管理</a></li>
+                    <li><a href="/WebHotelManage/News/NewsPublish">发布新闻</a></li>
+                    <li><a href="/WebHotelManage/News/NewsManager">新闻管理</a></li>
+                    <li><a href="/WebHotelManage/Company/BookManager">预订管理</a></li>
+                    <li><a href="/WebHotelManage/Company/SuggestionManager">投诉管理</a></li>
+                    <li><a href="/Recruitment/Index">发布招聘</a></li>
+                    <li><a href="/Recruitment/RecruitmentManager">招聘管理</a></li>
+                    <li><a class="navLast" href="/WebHotelManage/SysAdmin/ExitSys">退出系统</a></li>
+                </ul>
+            </div>
+        </div>
+        <div id="content">
+            <style type="text/css">
+                .txt {
+                    width: 80px;
+                }
+            </style>
+            <script src="~/Scripts/jquery-1.8.2.min.js"></script>
+            <script type="text/javascript">
+            $(function () {
+                var postType1 = $("#PostT").val();
+                $("#PostType").val(postType1);
+                var Exp1 = $("#Exp").val();
+                $("#Experience").val(Exp1);
+                var Edu1 = $("#Edu").val();
+                $("#EduBackground").val(Edu1);
+            });
+            </script>
+            <form action="RecruitmentsUpdate" method="post">
+                <div class="txtContentdiv">
+                    <div class="txtItemdiv">
+                        职位名称：<input class="txt" id="PostName" name="PostName" type="text" value="大堂经理" />
+                        <input data-val="true" data-val-number="字段 PostId 必须是一个数字。" data-val-required="PostId 字段是必需的。" id="PostId" name="PostId" type="hidden" value="@Model.PostId" />
+                        <input id="PostT" name="PostT" type="hidden" value="@Model.PostType" />
+                        <input id="Exp" name="Exp" type="hidden" value="@Model.Experience" />
+                        <input id="Edu" name="Edu" type="hidden" value="@Model.EduBackground" />
+                        职位类型：
+                        <select id="PostType" name="PostType">
+                            <option>全职</option>
+                            <option>兼职</option>
+                        </select>
+                        工作经验：
+                        <select id="Experience" name="Experience">
+                            <option>1年</option>
+                            <option>2年</option>
+                            <option>3年</option>
+                            <option>4年</option>
+                            <option>5年</option>
+                        </select>
+                        学历要求：
+                        <select id="EduBackground" name="EduBackground">
+                            <option>本科</option>
+                            <option>硕士</option>
+                            <option>专科</option>
+                            <option>高中</option>
+                        </select>
+                        招聘人数：
+                        <input class="txt" data-val="true" data-val-number="字段 RequireCount 必须是一个数字。" data-val-required="RequireCount 字段是必需的。" id="RequireCount" name="RequireCount" type="text" value="@Model.RequireCount" />
+                        工作地点：
+                        <input class="txt" id="PostPlace" name="PostPlace" type="text" value="@Model.PostPlace" />
+                    </div>
+                    <div class="txtItemdiv">
+                        职位描述：
+                    </div>
+                    <div class="txtItemdiv">
+                        <textarea cols="100" id="PostRequire" name="PostRequire" rows="10">@Model.PostDesc</textarea>
+
+                    </div>
+                    <div class="txtItemdiv">
+                        具体要求：
+                    </div>
+                    <div class="txtItemdiv">
+                        <textarea cols="100" id="PostDesc" name="PostDesc" rows="10">@Model.PostRequire</textarea>
+                    </div>
+                    <div class="txtItemdiv">
+                        联系人：
+                        <input id="Manager" name="Manager" type="text" value="@Model.Manager" />
+                        电话：<input id="PhoneNumber" name="PhoneNumber" type="text" value="@Model.PhoneNumber" />
+
+                        电子邮件：<input id="Email" name="Email" type="text" value="@Model.Email" />
+                    </div>
+                    <div class="txtItemdiv">
+                        发布时间：
+                        <input id="PublishTime" name="PublishTime" class="Wdate" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss',readOnly:true});" value="@Model.PublishTime.Value.ToString("yyyy-MM-dd HH:mm:ss")" />
+                    </div>
+                    <div class="txtItemdiv">
+                        <button class="btncss" id="btnModify" type="submit">立即修改</button>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+        <div id="footer">
+            <div id="bq">
+                <a target="_blank" href="/Company/Index">[网站首页]</a>&nbsp;&nbsp;版权所有 Copyright(C)2010-2020
+                好运来酒店&nbsp;&nbsp;&nbsp;[当前用户:]
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
